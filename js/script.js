@@ -1,3 +1,24 @@
+class Servicio {
+  constructor(nombre, precio, id){
+    this.nombre = nombre;
+    this.precio = precio;
+    this.id = id;
+  }
+
+asignarId(array){
+  this.id= array.lenght;
+}
+}
+
+const servicios = [
+  new Servicio('Uñas esculpidas', 1300, 1)
+  new Servicio('Esmaltado semipermanente', 800, 2)
+  new Servicio('Kapping', 800, 3)
+  new Servicio('Estetica de pies', 750, 4)
+]
+
+
+
 do {
     servicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
     serviciosPermitidos = 4;
@@ -5,12 +26,15 @@ do {
     if (isNaN(servicio)) {
       alert('Debe ingresar un número');
     } else if (servicio > serviciosPermitidos) {
-      alert('Por favor ingrese un número de servicio válido');
+      alert('Debe ingresar un número de servicio válido');
     } else {
       if (servicio == 1) {
         alert('Gracias por seleccionar Uñas esculpidas. El precio del servicio es de $1.300')
+        /*function agregalAlcarrito(servicio1){
+          carrito.push(servicio1);*/
+        }
       } else if (servicio == 2) {
-        alert('Gracias por seleccionar Esmalte semipermanente. El precio del servicio es de $800')
+        alert('Gracias por seleccionar Esmaltado semipermanente. El precio del servicio es de $800')
       } else if (servicio == 3) {
         alert('Gracias por seleccionar Kapping. el precio del servicio es de $800')
       } else if (servicio == 4) {
@@ -18,12 +42,33 @@ do {
       }
     }
   } while (isNaN(servicio) || servicio > serviciosPermitidos);
-  
-  let nuevoServicio = prompt('Desea agregar un nuevo servicio? (si/no)');
-  while (nuevoServicio.toLowerCase() !== 'no') {
-    alert('Gracias por visitar nuestro sitio');
-    break;
-  }
+
+const servicio1 = [
+  nombre: "Uñas esculpidas",
+  precio: 1300
+];
+
+const carritoDeCompras = {
+  items: []
+}
+
+let total = 0;
+for (let i = 0; i < carritoDeCompras.lenght; i++){
+  total += carritoDeCompras[i].precio;
+}
+
+console.log("Carrito de compras:");
+for (let i = 0; i < carritoDeCompras.lenght; i++) {
+  console.log("-" + carritoDeCompras[i].nombre + " ($" + carrito[i].precio + ")");
+}
+console.log ("Total: $" + total);
+
+let mensaje = "Carrito de compras: ";
+for (let i = 0; i < carritoDeCompras.lenght; i++){
+  mensaje += "- " + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")/n";
+}
+mensaje += "Total: $" + total;
+alert(mensaje);
 
 
 
