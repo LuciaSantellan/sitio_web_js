@@ -55,7 +55,7 @@ for (let i = 0; i < carritoDeCompras.length; i++){
 
 console.log("Carrito de compras:");
 for (let i = 0; i < carritoDeCompras.length; i++) {
-  console.log("-" + carritoDeCompras[i].nombre + " ($" + carrito[i].precio + ")");
+  console.log("-" + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")");
 }
 console.log ("Total: $" + total);
 
