@@ -17,6 +17,20 @@ const servicios = [
   new Servicio('Estetica de pies', 750, 4),
 ]
 
+function buscarServicio(nombreServicio){
+  const servicioEncontrado = servicios.find(servicio => servicio.nombre === nombreServicio);
+  return servicioEncontrado;
+}
+
+const nombreServicio = prompt ('Ingresa el nombre del servicio que deseas buscar');
+const servicioEncontrado =  buscarServicio(nombreServicio);
+
+if (servicioEncontrado) {
+  alert('Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}');
+} else {
+  alert('Por favor ingresa un nombre de servicio válido');
+}
+
 let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
 serviciosPermitidos = 4;
 
@@ -40,7 +54,7 @@ do {
       }
     } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
 
-const carritoDeCompras = {
+/*const carritoDeCompras = {
   items: []
 }
 
@@ -60,7 +74,7 @@ for (let i = 0; i < carritoDeCompras.length; i++){
   mensaje += "- " + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")/n";
 }
 mensaje += "Total: $" + total;
-alert(mensaje);
+alert(mensaje);*/
 
 
 
