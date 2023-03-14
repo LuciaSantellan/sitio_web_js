@@ -39,11 +39,6 @@ do {
       }
     } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
 
-const servicio1 = [
-  nombre: "Uñas esculpidas",
-  precio: 1300
-];
-
 const carritoDeCompras = {
   items: []
 }
