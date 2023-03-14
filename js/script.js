@@ -26,7 +26,7 @@ const nombreServicio = prompt ('Ingresa el nombre del servicio que deseas buscar
 const servicioEncontrado =  buscarServicio(nombreServicio);
 
 if (servicioEncontrado) {
-  alert('Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}');
+  alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
 } else {
   alert('Por favor ingresa un nombre de servicio válido');
 }
