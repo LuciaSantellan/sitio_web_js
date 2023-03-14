@@ -6,7 +6,7 @@ class Servicio {
   }
 
 asignarId(array){
-  this.id= array.lenght;
+  this.id= array.length;
 }
 }
 
@@ -49,18 +49,18 @@ const carritoDeCompras = {
 }
 
 let total = 0;
-for (let i = 0; i < carritoDeCompras.lenght; i++){
+for (let i = 0; i < carritoDeCompras.length; i++){
   total += carritoDeCompras[i].precio;
 }
 
 console.log("Carrito de compras:");
-for (let i = 0; i < carritoDeCompras.lenght; i++) {
+for (let i = 0; i < carritoDeCompras.length; i++) {
   console.log("-" + carritoDeCompras[i].nombre + " ($" + carrito[i].precio + ")");
 }
 console.log ("Total: $" + total);
 
 let mensaje = "Carrito de compras: ";
-for (let i = 0; i < carritoDeCompras.lenght; i++){
+for (let i = 0; i < carritoDeCompras.length; i++){
   mensaje += "- " + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")/n";
 }
 mensaje += "Total: $" + total;
