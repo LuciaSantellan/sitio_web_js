@@ -11,10 +11,10 @@ asignarId(array){
 }
 
 const servicios = [
-  servicios.push(new Servicio('Uñas esculpidas', 1300, 1)),
-  servicios.push(new Servicio('Esmaltado semipermanente', 800, 2)),
-  servicios.push(new Servicio('Kapping', 800, 3)),
-  servicios.push(new Servicio('Estetica de pies', 750, 4)),
+  new Servicio('Uñas esculpidas', 1300, 1),
+  new Servicio('Esmaltado semipermanente', 800, 2),
+  new Servicio('Kapping', 800, 3),
+  new Servicio('Estetica de pies', 750, 4),
 ]
 
 do {
