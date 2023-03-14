@@ -18,28 +18,28 @@ const servicios = [
 ]
 
 do {
-    servicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
+    let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
     serviciosPermitidos = 4;
     
-    if (isNaN(servicio)) {
+    if (isNaN(ingresoServicio)) {
       alert('Debe ingresar un número');
-    } else if (servicio > serviciosPermitidos) {
+    } else if (ingresoServicio > serviciosPermitidos) {
       alert('Debe ingresar un número de servicio válido');
     } else {
-      if (servicio == 1) {
+      if (ingresoServicio == 1) {
         alert('Gracias por seleccionar Uñas esculpidas. El precio del servicio es de $1.300')
         /*function agregalAlcarrito(servicio1){
-          carrito.push(servicio1);*/
-        }
-      } else if (servicio == 2) {
+          carrito.push(servicio1);
+        }*/
+      } else if (ingresoServicio == 2) {
         alert('Gracias por seleccionar Esmaltado semipermanente. El precio del servicio es de $800')
-      } else if (servicio == 3) {
+      } else if (ingresoServicio == 3) {
         alert('Gracias por seleccionar Kapping. el precio del servicio es de $800')
-      } else if (servicio == 4) {
+      } else if (ingresoServicio == 4) {
         alert('Gracias por seleccionar Estética de pies. El precio del servicio es de $750')
       }
     }
-  } while (isNaN(servicio) || servicio > serviciosPermitidos);
+  } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
 
 const servicio1 = [
   nombre: "Uñas esculpidas",
