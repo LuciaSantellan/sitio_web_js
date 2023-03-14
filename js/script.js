@@ -25,8 +25,7 @@ do {
       alert('Debe ingresar un número');
     } else if (ingresoServicio > serviciosPermitidos) {
       alert('Debe ingresar un número de servicio válido');
-    } else {
-      if (ingresoServicio == 1) {
+    } else if (ingresoServicio == 1) {
         alert('Gracias por seleccionar Uñas esculpidas. El precio del servicio es de $1.300')
         /*function agregalAlcarrito(servicio1){
           carrito.push(servicio1);
@@ -38,8 +37,7 @@ do {
       } else if (ingresoServicio == 4) {
         alert('Gracias por seleccionar Estética de pies. El precio del servicio es de $750')
       }
-    }
-  } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
+    } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
 
 const servicio1 = [
   nombre: "Uñas esculpidas",
