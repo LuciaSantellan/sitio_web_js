@@ -6,7 +6,7 @@ class Servicio {
   }
 
 asignarId(array){
-  this.id= array.length;
+  this.id= array.length +1;
 }
 }
 
@@ -17,19 +17,19 @@ const servicios = [
   new Servicio('Estetica de pies', 750, 4),
 ]
 
-function buscarServicio(nombreServicio){
-  const servicioEncontrado = servicios.find(servicio => servicio.nombre === nombreServicio);
-  return servicioEncontrado;
-}
+/* function buscarServicio(nombreServicio){
+   const servicioEncontrado = servicios.find(servicio => servicio.nombre === nombreServicio);
+   return servicioEncontrado;
+ }
 
-const nombreServicio = prompt ('Ingresa el nombre del servicio que deseas buscar');
-const servicioEncontrado =  buscarServicio(nombreServicio);
+ const nombreServicio = prompt ('Ingresa el nombre del servicio que deseas buscar');
+ const servicioEncontrado =  buscarServicio(nombreServicio);
 
-if (servicioEncontrado) {
-  alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
-} else {
-  alert('Por favor ingresa un nombre de servicio válido');
-}
+ if (servicioEncontrado) {
+   alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
+ } else {
+   alert('Por favor ingresa un nombre de servicio válido');
+ }*/
 
 let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
 serviciosPermitidos = 4;
@@ -57,18 +57,15 @@ do {
 /*const carritoDeCompras = {
   items: []
 }
-
 let total = 0;
 for (let i = 0; i < carritoDeCompras.length; i++){
   total += carritoDeCompras[i].precio;
 }
-
 console.log("Carrito de compras:");
 for (let i = 0; i < carritoDeCompras.length; i++) {
   console.log("-" + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")");
 }
 console.log ("Total: $" + total);
-
 let mensaje = "Carrito de compras: ";
 for (let i = 0; i < carritoDeCompras.length; i++){
   mensaje += "- " + carritoDeCompras[i].nombre + " ($" + carritoDeCompras[i].precio + ")/n";
