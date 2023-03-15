@@ -32,7 +32,7 @@ const servicios = [
    if (servicioEncontrado) {
      alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
    }
-  } while (isNaN(ingresoServicio) || ingresoSservicio > serviciosPermitidos);
+  } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
 
 
 
