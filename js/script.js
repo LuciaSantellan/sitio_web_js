@@ -18,23 +18,21 @@ const servicios = [
 ]
 
  do {
-  servicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
+  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
   serviciosPermitidos = 4;
   
-  if (isNaN(servicio)) {
+  if (isNaN(ingresoServicio)) {
     alert('Debe ingresar un número');
-  } else if (servicio > serviciosPermitidos) {
+  } else if (ingresoServicio > serviciosPermitidos) {
     alert('Por favor ingrese un número de servicio válido');
   } 
   const buscarServicio = servicios.find(serv => serv.id === ingresoServicio)
-  console.log('servicio encontrado');
+  console.log(servicioEncontrado);
   
    if (servicioEncontrado) {
      alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
-   } else {
-     alert('Por favor ingresa un nombre de servicio válido');
    }
-  } while (isNaN(servicio) || servicio > serviciosPermitidos);
+  } while (isNaN(ingresoServicio) || ingresoSservicio > serviciosPermitidos);
 
 
 
