@@ -26,7 +26,7 @@ const servicios = [
   } else if (ingresoServicio > serviciosPermitidos) {
     alert('Por favor ingrese un número de servicio válido');
   } 
-  const buscarServicio = servicios.find(serv => serv.id === ingresoServicio)
+  const servicioEncontrado = servicios.find(serv => serv.id === ingresoServicio)
   console.log(servicioEncontrado);
   
    if (servicioEncontrado) {
