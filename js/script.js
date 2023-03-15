@@ -18,7 +18,7 @@ const servicios = [
 ]
 
  do {
-  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
+  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar(Op.1: Uñas esculpidas. Op.2: Esmaltado semipermanente. Op.3: Kapping. Op.4: Estética de pies.)'));
   serviciosPermitidos = 4;
   
   if (isNaN(ingresoServicio)) {
