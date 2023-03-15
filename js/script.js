@@ -31,11 +31,12 @@ const servicios = [
    alert('Por favor ingresa un nombre de servicio válido');
  }*/
 
-let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
-serviciosPermitidos = 4;
+
 
 do {
-
+  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar'));
+  serviciosPermitidos = 4;
+  
     if (isNaN(ingresoServicio)) {
       alert('Debe ingresar un número');
     } else if (ingresoServicio > serviciosPermitidos) {
