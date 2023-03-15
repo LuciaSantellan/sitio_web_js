@@ -16,11 +16,13 @@ const servicios = [
   new Servicio('Kapping', 800, 3),
   new Servicio('Estetica de pies', 750, 4),
 ]
+let ingresoServicio = 0
 
-let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar(Op.1: Uñas esculpidas. Op.2: Esmaltado semipermanente. Op.3: Kapping. Op.4: Estética de pies.)'));
-let serviciosPermitidos = 4;
 
  do {
+  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar(Op.1: Uñas esculpidas. Op.2: Esmaltado semipermanente. Op.3: Kapping. Op.4: Estética de pies.)'));
+let serviciosPermitidos = 4;
+
   if (isNaN(ingresoServicio)) {
     alert('Debe ingresar un número');
   } else if (ingresoServicio > serviciosPermitidos) {
