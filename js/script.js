@@ -12,6 +12,7 @@ const mailLogin = document.getElementById("emailLogin"),
   recordar = document.getElementById("recordarme"),
   btnLogin = document.getElementById("modalLogin"),
   modalEl = document.querySelector("#modalLogin"),
+  nombreUsuario = document.getElementById("nombreUsuario"),
   contTarjetas = document.getElementById("tarjetas"),
   toggles = document.querySelectorAll(".toggles"),
   btnLogout = document.getElementById("btnLogout");
@@ -45,8 +46,9 @@ function recuperarUsuario(storage) {
 }
 
 function saludar(usuario) {
-  nombreUsuario.innerHTML = `Bienvenido/a, <span>${usuario.name}</span>`;
+  nombreUsuario.innerHTML = `Bienvenido/a, <span>${usuario.name}</span>`
 }
+
 //falta agregar tarjetas//
 
 function mostrarInfo(array, clase) {
