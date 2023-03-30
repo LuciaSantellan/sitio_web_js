@@ -23,12 +23,30 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
         </div>
-        <div><form class="d-flex">
+        <div>
+          <form class="d-flex">
           <button id="modalLogin" class="btn btn-outline-primary me-2 toggles" type="button" data-bs-toggle="modal"
           data-bs-target="#modalLogin">Ingreso de usuario</button>
           <button id="btnLogout" class="btn btn-outline-secondary d-none toggles" type="button">Cerrar sesión</button>
           <p id="nombreUsuario" class="d-none toggles"></p>
         </form>
+        <div class="modal-body py-2 px-4">
+          <input id="emailLogin" class="form-control my-4" type="email"
+              placeholder="Ingresa tu correo electrónico" required>
+          <input id="passwordLogin" class="form-control my-4" type="password"
+              placeholder="Ingresa tu contraseña" required>
+      </div>
+      <div class="modal-footer d-block">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="recordarme">
+              <label class="form-check-label" for="recordarme">
+                  Recordarme en este equipo
+              </label>
+          </div>
+          <button class="btn btn-outline-primary" id="login" type="submit">Ingresar</button>
+      </div>
+  </div>
+</div>
       </div>
       </nav>
     </header>
