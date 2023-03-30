@@ -1,3 +1,102 @@
+//usar estos datos para el ingreso de usuarios//
+const usuarios = [
+  {
+    nombre: "Lucia",
+    mail: "lusantellan@gmail.com",
+    pass: "cursojavascript",
+  },
+];
+
+const mailLogin = document.getElementById("emailLogin"),
+  passLogin = document.getElementById("passwordLogin"),
+  recordar = document.getElementById("recordarme"),
+  btnLogin = document.getElementById("modalLogin"),
+  modalEl = document.querySelector("#modalLogin"),
+  contTarjetas = document.getElementById("tarjetas"),
+  toggles = document.querySelectorAll(".toggles"),
+  btnLogout = document.getElementById("btnLogout");
+
+function validarUsuario(usersDB, user, pass) {
+  let encontrado = usersDB.find((userDB) => userDB.mail == user);
+
+  if (typeof encontrado === "undefined") {
+    return false;
+  } else {
+    if (encontrado.pass != pass) {
+      return false;
+    } else {
+      return encontrado;
+    }
+  }
+}
+
+function guardarDatos(usuarioDB, storage) {
+  const usuario = {
+    name: usuarioDB.nombre,
+    user: usuarioDB.mail,
+    pass: usuarioDB.pass,
+  };
+  storage.setItem("usuario", JSON.stringify(usuario));
+}
+
+function recuperarUsuario(storage) {
+  let usuarioEnStorage = JSON.parse(storage.getItem("usuario"));
+  return usuarioEnStorage;
+}
+
+function saludar(usuario) {
+  nombreUsuario.innerHTML = `Bienvenido/a, <span>${usuario.name}</span>`;
+}
+//falta agregar tarjetas//
+
+function mostrarInfo(array, clase) {
+  array.forEach((element) => {
+    element.classList.toggle(clase);
+  });
+}
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!mailLogin.value || !passLogin.value) {
+    alert("Complete todos los campos requeridos");
+  } else {
+    let data = validarUsuario(usuarios, mailLogin.value, passLogin.value);
+    if (!data) {
+      alert(`El usuario y/o contraseña no son correctos`);
+    } else {
+      if (recordar.checked) {
+        guardarDatos(data, localStorage);
+        saludar(recuperarUsuario(localStorage));
+      } else {
+        guardarDatos(data, sessionStorage);
+        saludar(recuperarUsuario(sessionStorage));
+      }
+
+      modal.hide();
+    }
+  }
+});
+
+function borrarDatos() {
+  localStorage.clear();
+  sessionStorage.clear();
+}
+
+btnLogout.addEventListener("click", () => {
+  borrarDatos();
+  mostrarInfo(toggles, "d-none");
+});
+
+function logAbierto(usuario) {
+  if (usuario) {
+    saludar(usuario);
+    mostrarInfo(toggles, "d-none");
+  }
+}
+
+logAbierto(recuperarUsuario(localStorage));
+
 class Servicio {
   constructor(nombre, precio, id){
     this.nombre = nombre;
