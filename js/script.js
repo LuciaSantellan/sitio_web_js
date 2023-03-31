@@ -1,148 +1,73 @@
-//usar estos datos para el ingreso de usuarios//
-const usuarios = [
-  {
-    nombre: "Lucia",
-    mail: "lusantellan@gmail.com",
-    pass: "cursojavascript",
-  },
-];
+const botonesAgregar = document.querySelectorAll('.boton');
 
-const mailLogin = document.getElementById("emailLogin"),
-  passLogin = document.getElementById("passwordLogin"),
-  recordar = document.getElementById("recordarme"),
-  btnLogin = document.getElementById("modalLogin"),
-  modalEl = document.querySelector("#modalLogin"),
-  nombreUsuario = document.getElementById("nombreUsuario"),
-  contTarjetas = document.getElementById("tarjetas"),
-  toggles = document.querySelectorAll(".toggles"),
-  btnLogout = document.getElementById("btnLogout");
+botonesAgregar.forEach(boton => {
+    boton.addEventListener('click', agregarAlCarrito);
+});
 
-function validarUsuario(usersDB, user, pass) {
-  let encontrado = usersDB.find((userDB) => userDB.mail == user);
-
-  if (typeof encontrado === "undefined") {
-    return false;
-  } else {
-    if (encontrado.pass != pass) {
-      return false;
-    } else {
-      return encontrado;
+function agregarAlCarrito(e) {
+    const item = e.target.parentElement;
+    const itemNombre = item.querySelector('.titulo__subt').textContent;
+    const itemPrecio = item.querySelector('.parrafo_precio').textContent;
+    const nuevoItem = {
+        nombre: itemNombre,
+        precio: itemPrecio,
+        cantidad: 1
     }
+    agregarItemLocalStorage(nuevoItem);
+}
+
+function agregarItemLocalStorage(nuevoItem) {
+  let items = obtenerItemsLocalStorage();
+  items.push(nuevoItem);
+  localStorage.setItem('items', JSON.stringify(items));
+  actualizarLista(items);
+}
+
+function obtenerItemsLocalStorage() {
+  let items;
+  if (localStorage.getItem('items') === null) {
+      items = [];
+  } else {
+      items = JSON.parse(localStorage.getItem('items'));
   }
+  return items;
 }
 
-function guardarDatos(usuarioDB, storage) {
-  const usuario = {
-    name: usuarioDB.nombre,
-    user: usuarioDB.mail,
-    pass: usuarioDB.pass,
-  };
-  storage.setItem("usuario", JSON.stringify(usuario));
-}
+function actualizarLista(items) {
+  const lista = document.querySelector('#lista-carrito');
+  lista.innerHTML = '';
 
-function recuperarUsuario(storage) {
-  let usuarioEnStorage = JSON.parse(storage.getItem("usuario"));
-  return usuarioEnStorage;
-}
-
-function saludar(usuario) {
-  nombreUsuario.innerHTML = `Bienvenido/a, <span>${usuario.name}</span>`
-}
-
-//falta agregar tarjetas//
-
-function mostrarInfo(array, clase) {
-  array.forEach((element) => {
-    element.classList.toggle(clase);
+  items.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+          <span>${item.nombre}</span>
+          <span>${item.precio}</span>
+          <span>${item.cantidad}</span>
+          <button class="eliminar-item" data-nombre="${item.nombre}">Eliminar</button>
+      `;
+      lista.appendChild(li);
   });
+
+  actualizarTotal(items);
 }
 
-btnLogin.addEventListener("click", (e) => {
-  e.preventDefault();
+const listaCarrito = document.querySelector('#lista-carrito');
 
-  if (!mailLogin.value || !passLogin.value) {
-    alert("Complete todos los campos requeridos");
-  } else {
-    let data = validarUsuario(usuarios, mailLogin.value, passLogin.value);
-    if (!data) {
-      alert(`El usuario y/o contraseña no son correctos`);
-    } else {
-      if (recordar.checked) {
-        guardarDatos(data, localStorage);
-        saludar(recuperarUsuario(localStorage));
-      } else {
-        guardarDatos(data, sessionStorage);
-        saludar(recuperarUsuario(sessionStorage));
-      }
-
-      modal.hide();
+listaCarrito.addEventListener('click', (e) => {
+    if (e.target.classList.contains('eliminar-item')) {
+        const itemNombre = e.target.dataset.nombre;
+        eliminarItemLocalStorage(itemNombre);
     }
-  }
 });
 
-function borrarDatos() {
-  localStorage.clear();
-  sessionStorage.clear();
+function eliminarItemLocalStorage(itemNombre) {
+  let items = obtenerItemsLocalStorage();
+  items = items.filter(item => item.nombre !== itemNombre);
+  localStorage.setItem('items', JSON.stringify(items));
+  actualizarLista(items);
 }
 
-btnLogout.addEventListener("click", () => {
-  borrarDatos();
-  mostrarInfo(toggles, "d-none");
-});
-
-function logAbierto(usuario) {
-  if (usuario) {
-    saludar(usuario);
-    mostrarInfo(toggles, "d-none");
-  }
-}
-
-logAbierto(recuperarUsuario(localStorage));
-
-class Servicio {
-  constructor(nombre, precio, id){
-    this.nombre = nombre;
-    this.precio = precio;
-    this.id = id;
-  }
-
-asignarId(array){
-  this.id= array.length;
-}
-}
-
-const servicios = [
-  new Servicio('Uñas esculpidas', 1300, 1),
-  new Servicio('Esmaltado semipermanente', 800, 2),
-  new Servicio('Kapping', 800, 3),
-  new Servicio('Estetica de pies', 750, 4),
-]
-let ingresoServicio = 0
-
-let serviciosPermitidos = 4;
-
- do {
-  let ingresoServicio = parseInt(prompt('Ingresa la opción de servicio que deseas contratar(Op.1: Uñas esculpidas. Op.2: Esmaltado semipermanente. Op.3: Kapping. Op.4: Estética de pies.)'));
-
-  if (isNaN(ingresoServicio)) {
-    alert('Debe ingresar un número');
-  } else if (ingresoServicio > serviciosPermitidos) {
-    alert('Por favor ingrese un número de servicio válido');
-  } else{
-  const servicioEncontrado = servicios.find(serv => serv.id === ingresoServicio)
-  console.log(servicioEncontrado);
-  
-   if (servicioEncontrado) {
-     alert(`Gracias por seleccionar ${servicioEncontrado.nombre} El precio del servicio es de $${servicioEncontrado.precio}`);
-   }
-  }
-  } while (isNaN(ingresoServicio) || ingresoServicio > serviciosPermitidos);
-
-
-
-
-
-
-
-
-
+function actualizarTotal(items) {
+  const total = items.reduce((acc, item) => acc + parseInt(item.precio.slice(1)) * item.cantidad, 0);
+  const totalElement = document.createElement('div');
+  totalElement.innerHTML = `<span>Total: $${total}</span>`;}

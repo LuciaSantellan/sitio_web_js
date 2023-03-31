@@ -23,31 +23,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
         </div>
-        <div>
-          <form class="d-flex">
-          <button id="modalLogin" class="btn btn-outline-primary me-2 toggles" type="button" data-bs-toggle="modal"
-          data-bs-target="#modalLogin">Ingreso de usuario</button>
-          <button id="btnLogout" class="btn btn-outline-secondary d-none toggles" type="button">Cerrar sesión</button>
-          <p id="nombreUsuario" class="d-none toggles"></p>
-        </form>
-        <div class="modal-body py-2 px-4">
-          <input id="emailLogin" class="form-control my-4" type="email"
-              placeholder="Ingresa tu correo electrónico" required>
-          <input id="passwordLogin" class="form-control my-4" type="password"
-              placeholder="Ingresa tu contraseña" required>
+        <div id="carrito">
+          <h2>Carrito de compras</h2>
+          <ul id="lista-carrito">
+          </ul>
+          <button id="vaciar-carrito">Vaciar carrito</button>
       </div>
-      <div class="modal-footer d-block">
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="recordarme">
-              <label class="form-check-label" for="recordarme">
-                  Recordarme en este equipo
-              </label>
-          </div>
-          <button class="btn btn-outline-primary" id="login" type="submit">Ingresar</button>
-      </div>
-  </div>
-</div>
-      </div>
+      
       </nav>
     </header>
 
@@ -56,39 +38,39 @@
         <section class="section">
           <div>
         <div class="caja_serv">
-          <h3 class="titulo__subt">Op. 1: Uñas esculpidas</h3>
+          <h3 class="titulo__subt">Uñas esculpidas</h3>
           <img src="./assets/images/acrilico.jpeg" alt="Uñas esculpidas" class="foto">
           <p class="parrafo"> Se construye la uña enteramente de acrílico. Se puede modificar el largo.</p>
           <p class="parrafo">Inlcuye manicura rusa combinada.</p>
-          <p class="parrafo">$1.300</p>
+          <p class="parrafo_precio">$1.300</p>
           <button class="boton">Agregar al carrito</button>
         </div>
         
         <div class="caja_serv">
-          <h3 class="titulo__subt">Op. 3: Kapping</h3>
+          <h3 class="titulo__subt">Kapping</h3>
           <img src="./assets/images/kapping.jpeg" alt="Kapping" class="foto">
           <p class="parrafo">Se coloca acrílico sobre la uña natural, sin agregarle largo.</p>
           <p class="parrafo">Incluye manicura rusa combinada.</p>
-          <p class="parrafo">$800</p>
+          <p class="parrafo_precio">$800</p>
           <button class="boton">Agregar al carrito</button>
       </div>
     </div>
         <div>
       <div class="caja_serv">
-        <h3 class="titulo__subt">Op. 2: Esmaltado semipermanente</h3>
+        <h3 class="titulo__subt">Esmaltado semipermanente</h3>
         <img src="./assets/images/semi.jpeg" alt="Esmaltado semipermanente" class="foto">
         <p class="parrafo">Se coloca esmaltado sobre la uña natural, sin agregarle largo.</p>
         <p class="parrafo">Incluye manicura rusa combinada</p>
-        <p class="parrafo">$800</p>
+        <p class="parrafo_precio">$800</p>
         <button class="boton">Agregar al carrito</button>
     </div>
         
     <div class="caja_serv">
-      <h3 class="titulo__subt">Op. 4: Estética de pies</h3>
+      <h3 class="titulo__subt">Estética de pies</h3>
       <img src="./assets/images/pies.jpeg" alt="Estetica de pies" class="foto">
       <p class="parrafo">Te brindamos un servicio de hidromasaje, generando una sensación de relax en tus pies.</p>
       <p class="parrafo">Incluye manicura rusa combinada y esmaltado semipermanente.</p>
-      <p class="parrafo">$750</p>
+      <p class="parrafo_precio">$750</p>
       <button class="boton">Agregar al carrito</button>
   </div>
 </div>
