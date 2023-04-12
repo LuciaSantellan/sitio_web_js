@@ -71,3 +71,22 @@ function actualizarTotal(items) {
   const total = items.reduce((acc, item) => acc + parseInt(item.precio.slice(1)) * item.cantidad, 0);
   const totalElement = document.createElement('div');
   totalElement.innerHTML = `<span>Total: $${total}</span>`;}
+
+const btnToast = document.getElementById('botonToast')
+
+btnToast.onclick=()=>{
+Toastify({
+text:'Producto agregado al carrito',
+duration: 3000,
+style:{
+  color: '#c9184a',
+  widht: '20vw',
+  height: 80,
+  background: "radial-gradient(circle, rgba(255,240,243,1) 0%, rgba(255,143,163,1) 100%)"
+},
+offset: {
+  x:10,
+  y: 10,
+}
+}).showToast()
+}
