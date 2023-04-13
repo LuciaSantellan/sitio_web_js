@@ -72,21 +72,25 @@ function actualizarTotal(items) {
   const totalElement = document.createElement('div');
   totalElement.innerHTML = `<span>Total: $${total}</span>`;}
 
-const btnToast = document.getElementById('botonToast')
+  const btnToast = document.querySelectorAll('.botonToast');
 
-btnToast.onclick=()=>{
-Toastify({
-text:'Producto agregado al carrito',
-duration: 3000,
-style:{
-  color: '#c9184a',
-  widht: '20vw',
-  height: 80,
-  background: "radial-gradient(circle, rgba(255,240,243,1) 0%, rgba(255,143,163,1) 100%)"
-},
-offset: {
-  x:10,
-  y: 10,
-}
-}).showToast()
-}
+  btnToast.forEach((btn) => {
+    btn.onclick = () => {
+      Toastify({
+        text: 'Producto agregado al carrito',
+        duration: 3000,
+        style: {
+          color: '#c9184a',
+          width: '16vw',
+          height: 80,
+          background: "radial-gradient(circle, rgba(255,240,243,1) 0%, rgba(255,143,163,1) 100%)"
+        },
+        offset: {
+          x: 10,
+          y: 10,
+        },
+      }).showToast();
+    };
+  });
+  
+  
