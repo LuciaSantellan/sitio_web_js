@@ -72,9 +72,9 @@ function actualizarTotal(items) {
   const totalElement = document.createElement('div');
   totalElement.innerHTML = `<span>Total: $${total}</span>`;}
 
-  const btnToast = document.querySelectorAll('.botonToast');
+const btnToast = document.querySelectorAll('.botonToast');
 
-  btnToast.forEach((btn) => {
+btnToast.forEach((btn) => {
     btn.onclick = () => {
       Toastify({
         text: 'Producto agregado al carrito',
@@ -91,6 +91,18 @@ function actualizarTotal(items) {
         },
       }).showToast();
     };
+  });
+
+const btnSwal = document.getElementById('botonSwal');
+
+btnSwal.addEventListener('click', function() {
+Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Tu compra fue realizada correctamente.',
+  showConfirmButton: false,
+  timer: 1500
+  });
   });
   
   
