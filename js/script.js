@@ -130,3 +130,10 @@ function iniciarMap(){
     map: map
   })
 }
+
+function initMap() {
+  let map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.9030298, lng: -56.1360138},
+    zoom: 10
+  });
+}
