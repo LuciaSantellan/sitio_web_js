@@ -131,9 +131,27 @@ function iniciarMap(){
   })
 }
 
-function initMap() {
+/*function initMap() {
   let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.9030298, lng: -56.1360138},
     zoom: 10
+  });
+  let marker = new google.maps.Marker({
+    position: coord,
+    map: map
+  })
+}*/
+
+function initMap() {
+  let miLatLng = {lat: -34.9030298, lng: -56.1360138};
+  let map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: miLatLng
+  });
+  
+  let marker = new google.maps.Marker({
+    position: miLatLng,
+    map: map,
+    title: 'Mi punto específico'
   });
 }
