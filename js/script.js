@@ -62,7 +62,12 @@ listaCarrito.addEventListener('click', (e) => {
 
 function eliminarItemLocalStorage(itemNombre) {
   let items = obtenerItemsLocalStorage();
-  items = items.filter(item => item.nombre !== itemNombre);
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].nombre === itemNombre) {
+      items.splice(i, 1);
+      break;
+    }
+  }
   localStorage.setItem('items', JSON.stringify(items));
   actualizarLista(items);
 }
@@ -70,9 +75,10 @@ function eliminarItemLocalStorage(itemNombre) {
 function actualizarTotal(items) {
   const total = items.reduce((acc, item) => acc + parseInt(item.precio.slice(1)) * item.cantidad, 0);
   const totalElement = document.createElement('div');
-  totalElement.innerHTML = `<span>Total: $${total}</span>`;}
+  totalElement.innerHTML = `<span>Total: $${total}</span>`;
+}
 
-  const botonVaciar = document.querySelector('#vaciar-carrito');
+const botonVaciar = document.querySelector('#vaciar-carrito');
 
 botonVaciar.addEventListener('click', vaciarCarrito);
 
@@ -80,7 +86,6 @@ function vaciarCarrito() {
   localStorage.removeItem('items');
   actualizarLista([]);
 }
-
 const btnToast = document.querySelectorAll('.botonToast');
 
 btnToast.forEach((btn) => {
