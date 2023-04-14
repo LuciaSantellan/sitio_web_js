@@ -72,6 +72,15 @@ function actualizarTotal(items) {
   const totalElement = document.createElement('div');
   totalElement.innerHTML = `<span>Total: $${total}</span>`;}
 
+  const botonVaciar = document.querySelector('#vaciar-carrito');
+
+botonVaciar.addEventListener('click', vaciarCarrito);
+
+function vaciarCarrito() {
+  localStorage.removeItem('items');
+  actualizarLista([]);
+}
+
 const btnToast = document.querySelectorAll('.botonToast');
 
 btnToast.forEach((btn) => {
