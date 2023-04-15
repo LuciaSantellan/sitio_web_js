@@ -129,6 +129,5 @@ function initMap() {
   let marker = new google.maps.Marker({
     position: miLatLng,
     map: map,
-    title: 'Mi punto específico'
   });
 }
